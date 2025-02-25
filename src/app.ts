@@ -27,6 +27,11 @@ async function startServer() {
       res.json({ message: `Hello ${req.params.name ?? "World"}!` });
     });
 
+    // Define test endpoint with a greeting message
+    app.get("/goodbye/:name", (req: Request, res: Response) => {
+      res.json({ message: `Goodbye ${req.params.name ?? "World"}!` });
+    });
+
     // Define test endpoint for JSON bodies
     app.get("/greet/:name", (req: Request, res: Response) => {
       const { greeting } = req.body;
